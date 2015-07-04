@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill Manager</title>
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+<div id="wrap">
+    <div id="friendListContainer">
+        <div class="friendListHdr">
+            <span>Friends List : </span>
+            <input id="addFriend" type="button" value="Add">
+			<input id="removeFriend" type="button" value="Remove">
+            <div class="clearBoth"></div>
+        </div>
+        <a id="friendListTableA" href="#"><ul id="friendListTable"></ul></a>
+    </div>
+    <div id="billListContainer">
+        <div class="contHdr">
+            <span>Add Bill</span>
+            <input id="addNewBill" type="button" value="Add" class="floatRight">
+            <div class="clearBoth"></div>
+        </div>
+        <div class="contBody">
+            <div id="billListUserName"></div>
+            <div id="billListTable"></div>
+            <div class="clearBoth"></div>
+        </div>
+    </div>
+    <div class="clearBoth"></div>
+    <div id="info">
+        Double click to edit the friends list
+    </div>
+    <script type="template" id="addFriendTmpl">
+        <div >
+            <input id="inputFriend" type="text" value=""/>
+        </div>
+    </script>
+    <script type="template" id="addNewBillTmpl">
+        <div >
+            <input id="inputBillDesc" type="text" value="" placeholder="Description"/> <br/>
+            <input id="inputBillAmountOwed" type="text" value="" placeholder="Amount"/>			
+			<div id="linkFriendsDiv"  >
+				<h5>Select Friends</h5>             
+                <div id="friendsSelectDiv" >                     
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
+</body>
+
+<script src="manager.js"></script>
+</html>

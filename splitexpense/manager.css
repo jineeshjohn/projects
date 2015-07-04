@@ -1,0 +1,156 @@
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.clearBoth {
+    clear: both;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+#friendListContainer {
+    padding: 10px;
+    width: 30%;
+    float: left;
+    border: 1px solid #808080;
+}
+
+#wrap {
+    width: 988px;
+    margin: 40px auto;
+}
+
+.friendListHdr {
+    background-color: #5bc5a7;
+}
+
+#friendListContainer .friendListHdr span {
+    float: left;
+}
+
+#friendListTableA {
+    text-decoration: none;
+    color: #000;
+}
+
+#friendListTable {
+}
+
+#friendListTable li {
+    border-bottom: 1px solid #DADADA;
+    padding: 5px;
+}
+
+#friendListTable li:hover {
+    background-color: tan;
+}
+
+#friendListTable  .selectedFriend {
+    background-color: #ccc;
+}
+
+#billListTable table {
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    width: 100%;
+}
+
+#billListTable  td,th {
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    padding: 5px;
+}
+
+#friendsSelectDiv table {
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+#friendsSelectDiv  td,th {
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    padding: 5px;
+}
+
+#popupClose {
+    cursor: pointer;
+}
+
+.popupOverLay {
+    background-color: #808080;
+    height: 100%;
+    left: 0;
+    opacity: 0.66;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.PopUp {
+    background-color: #FFFFFF;
+    border: 1px solid #DADADA;
+    left: 35%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    width: 30%;
+}
+
+.modalPopupBdy {
+    padding: 10px;
+}
+
+.PopUpHdr {
+    background-color: #5bc5a7;
+    padding: 5px;
+}
+
+#friendsList {
+    display: block;
+}
+
+#billListContainer {
+    width: 60%;
+    float: right;
+}
+
+#billListContainer .contHdr, #billListContainer .contBody {
+    border: 1px solid #808080;
+    padding: 5px;
+}
+
+#billListContainer .contHdr {
+    margin-bottom: 5px;
+    background-color: #5bc5a7;
+}
+
+h5 {
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+#info {
+    border: 1px solid #DADADA;
+    border-radius: 10px;
+    bottom: 0;
+    padding: 20px;
+    position: fixed;
+    width: 90%;
+}
