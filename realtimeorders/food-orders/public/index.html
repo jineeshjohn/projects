@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title> Food Store </title>
+	<link rel="stylesheet" href="base.css">
+</head>
+<body>
+	  
+
+
+ 
+<div id="container">
+	
+	<h3>Real time food order status </h3>
+	<div id="foodPanel">
+		<p>Commonly ordered Foods</p> <br/>
+		<table>
+			<tr>
+				<th>#</th> 
+				<th>Type of Food</th>
+			</tr>
+			<tbody id="FOList"/>
+		</table>
+	</div>
+	<div id="map"></div>
+</div>
+
+ 
+ 
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="underscore.js"></script>
+<script type="text/javascript">
+var socketio = io.connect("127.0.0.1:1337");
+socketio.on("message_to_client", function(data) {
+	setfoodOrderList(data['message']);
+});
+
+function FOList(FOList){
+	var tpl = [];
+	for (var i = 1; i < FOList.length; i++) {       
+		tpl.push(["<tr><td>",i,"</td><td>",FOList[i],"</td></tr>"].join(""));
+	}
+	document.getElementById("FOList").innerHTML = tpl.join("");
+}
+
+function setfoodOrderList(jsonString){ 	
+	var foodOrderList = eval(jsonString);
+	var sortedList= _.sortBy(_.groupBy(foodOrderList, 'name'), 'length').reverse();
+	var mostOrderedList = [];
+	_.each(sortedList,function(item){		
+		mostOrderedList.push(item[0].name?item[0].name:"Others");
+	});
+	FOList( mostOrderedList );
+	plotItOnMap( foodOrderList );
+	
+}
+
+function plotItOnMap( foodOrderList ){
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 5,
+		center: new google.maps.LatLng(45.45, 15.30),
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	});
+
+	var infowindow = new google.maps.InfoWindow();
+
+	var marker, i;
+	for (i = 0; i < foodOrderList.length; i++) {  
+		marker = new google.maps.Marker({
+			position: new google.maps.LatLng(foodOrderList[i].geo_lat, foodOrderList[i].geo_long),
+			map: map
+		});
+
+		google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			return function() {				
+				infowindow.setContent(["<b>",foodOrderList[i].name,
+				"</b><br/><em>€.",foodOrderList[i].price,"</em>"].join(""));
+				infowindow.open(map, marker);
+			}
+		})(marker, i));
+	}	
+}
+</script>
+</body>
+</html>
