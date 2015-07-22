@@ -1,0 +1,69 @@
+body {
+  font-size: 13px;
+  font-family: arial,tahoma,verdana,sans-serif;
+  color: #333;  
+}
+.bold{
+    font-weight:bold;
+}
+
+#header{
+    padding: 10px;
+    border: 1px solid #000;
+}
+#header a{
+    padding: 2px 5px;
+    text-decoration: underline;
+}
+#galleryApp ul {
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+}
+
+#galleryApp ul li {
+    position: relative;
+    background-color: white;
+}
+
+#galleryApp ul.selectAll li {
+    background-color: green;
+}
+
+#galleryApp .buttons {
+    margin-bottom: 20px;
+}
+#gallary{
+    border: 1px solid #000;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+#galleryApp .list li {
+    width: 100%;
+    border: 1px solid #CCC;
+    margin: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+}
+
+#galleryApp .grid li {
+    float: left;
+    width: 20%;
+    height: 50px;
+    border: 1px solid #CCC;
+    padding: 20px;
+    margin: 5px;
+}
+
+.container {
+    width: 600px;
+    margin: auto;
+}
+
+.delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

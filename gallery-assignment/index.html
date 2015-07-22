@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery views</title>
+    <link href="main.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="galleryApp" class="container">
+        <h1>Gallary views</h1>
+        <div id="header">
+            <span class="bold">Status</span>
+
+            <a href="javascript:;" id="selectAll">All</a>
+            <a href="javascript:;" id="activeView">Active</a>
+            <a href="javascript:;" id="expiredView">Expired</a>
+            <a href="javascript:;" id="toggleView">List</a>
+            <span class="bold">Actions</span>
+            <a href="javascript:;" id="addNew">Add New</a>
+        </div>
+
+        <div style="padding:5px;">
+            <input type="text" id="inputGal" style="display:none;" />
+        </div>
+        <div id="gallary">
+            <ul id="galList" class="grid">
+
+            </ul>
+        </div>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+
+</html>
