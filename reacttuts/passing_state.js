@@ -1,4 +1,6 @@
-var MessageView = (props) => <div>{props.message}</div>;
+var MessageView = (props) => {
+  return <div>{props.message}</div>
+};
 
 var RandomMessage = React.createClass({
   getInitialState: function() {
@@ -22,9 +24,14 @@ var RandomMessage = React.createClass({
 
 
 
-ReactDOM.render(
-  <RandomMessage />,
-  document.getElementById('container')
-);
+
+
+
+
+
+  ReactDOM.render(
+    <RandomMessage />,
+    document.getElementById('container')
+  );
 
 

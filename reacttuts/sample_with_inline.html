@@ -3,15 +3,19 @@
 <script src='lib/react-dom-15.0.1.js'></script>
 <div id='container'></div>
 <script type="text/babel">
-	var Aquarium = ({species}) => (
-	   <div>JJ</div>
-	);
+	function getData(){
+debugger;
+		console.log('Meyavoo');
+		return 12;
+	};
+	var Aquarium = (props) => {
+		var jj = 10;
+		var kk = getData();
+		return <div>JJ {props.species}</div>;
+	}
 
 
-
-
-
-	ReactDOM.render(  <Aquarium species="rainbowfish" /> ,
+	ReactDOM.render(  <Aquarium style='color:red;' species="rainbowfish" /> ,
 	  document.getElementById('container')
 	);
 </script>
