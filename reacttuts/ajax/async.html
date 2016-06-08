@@ -1,0 +1,70 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+<div id='container'></div>
+<script type="text/babel">
+var Button = (props) => {
+	return (
+		<button onClick={props.click}>List Languages</button>
+	);
+}
+
+var LanguageItem = (props) => {
+	return (
+		<label htmlFor={props.id}> {props.label} <input type="checkbox" id={props.id} defaultValue={props.id}/></label>
+	);
+}
+var LanguageList = React.createClass({
+	getInitialState:function(){
+		return {
+			languages:null
+		}
+	},
+	componentDidMount: function(){
+		setTimeout(function(){
+			this.setState({languages:[{label:"PHP",id:"php"},{label:"Java",id:"java"}]});
+		}.bind(this),2000);
+	},
+	render: function(){
+		if(!this.state.languages){
+			return <div> Show the spinner </div>;
+		}
+		var languageList = this.state.languages.map(function(item, index){
+			return <LanguageItem label={item.label} id={item.id} key={index} />
+		});
+		return (
+			<fieldset>
+				<legend>Languages</legend>
+				{languageList}
+			</fieldset>
+		);
+	}
+});
+var Container = React.createClass( {
+	getInitialState:function(){
+		return {
+			showLanguage:false
+		}
+	},
+
+	showLanguageList:function(){
+		this.setState({showLanguage: !this.state.showLanguage});
+	},
+	render: function(){
+		return (
+			<div>
+				<Button click={this.showLanguageList} />
+				<LanguageList list={this.state.languages} />
+			</div>
+		);
+	}
+});
+ReactDOM.render(<Container />, document.querySelector('#container'));
+</script>
+
+
+
+
+
+

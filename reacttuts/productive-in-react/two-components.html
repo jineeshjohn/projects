@@ -1,0 +1,61 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='c1' style='width: 200px;height: 200px;border: 1px solid #000;'></div>
+<div id='c2' style='width: 200px;height: 200px;border: 1px solid #000;'></div>
+<div id='c3'></div>
+<script type="text/babel">
+
+	var Dialog = () => {
+		return(
+			<div style='width: 250px;height: 100px; position: absolute;z-index: 3;border: 1px solid #000;'>
+				<p> This dialog content </p>
+				<div>
+					<button>Ok</button>
+					<button>Cancel</button>
+				</div>
+			</div>
+		);
+	};
+	var Button = () => {
+		return <button>Show Dialog</button>;
+	}
+
+	function Hello(){
+	  console.log('I am called jjjjjjjjjjjj ');
+	}
+
+	function Car(){
+	   return (
+	    <div>
+	    { <Honda click={Hello} />}
+	    </div>
+
+	  );
+	}
+
+	function Honda(props){
+	  return (
+	    <div onClick={props.click}> A  Car </div>
+	  );
+	}
+
+
+	var LI = (props) =>  {
+		return <li>{props.language}</li>;
+	};
+	var UL = () => {
+		var listOfLanguages = ["Java","PHP","Dot net"].map(function(lang,i){
+			return <LI language={lang} key={i}/>
+		});
+		return <ul>{listOfLanguages}</ul>
+	}
+
+	ReactDOM.render(<Car /> ,   document.querySelector('#c1'));
+	ReactDOM.render(<UL /> ,   document.querySelector('#c2'));
+	ReactDOM.render(<Button /> ,   document.querySelector('#c3'));
+
+
+</script>
+
+

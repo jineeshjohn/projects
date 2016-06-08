@@ -19,6 +19,10 @@ function Honda(props){
   );
 }
 
-ReactDOM.render(<Car /> ,   document.querySelector('#main'));
+
+ReactDOM.render(<Car /> ,   document.querySelector('#c1'));
+ReactDOM.render(<Car /> ,   document.querySelector('#c2'));
+
+
 
 

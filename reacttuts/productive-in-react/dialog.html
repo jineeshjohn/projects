@@ -1,0 +1,52 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+<div id='container'></div>
+<script type="text/babel">
+
+	var Dialog = (props) => {
+		var visibility = props.show?"block":"none";
+		return(
+
+		    <div style={{width: 250, backgroundColor:'tan', height: 100, position: 'absolute', zIndex: 3, border: '1px solid #000', display: visibility}}>
+				<p> This dialog content </p>
+				<div>
+					<button>Ok</button>
+					<button onClick={props.toggleDialog}>Cancel</button>
+				</div>
+			</div>
+		);
+	};
+
+	var Container = React.createClass({
+		getInitialState:function(){
+			return {
+				show:false
+			}
+		},
+		toggleDialog:function(){
+			debugger;
+			this.setState({show:!this.state.show});
+		},
+		render:function(){
+			return (
+				<div>
+					<Dialog toggleDialog={this.toggleDialog} show={this.state.show} />
+					<Button toggleDialog={this.toggleDialog}  />
+				</div>
+			)
+		}
+	});
+
+	var Button = (props) => {
+		return <button onClick={props.toggleDialog}>Show Dialog</button>;
+	}
+
+
+	ReactDOM.render(<Container /> ,   document.querySelector('#container'));
+
+
+</script>
+
+
