@@ -1,0 +1,24 @@
+<script src='lib/browser.js'></script>
+<script src='lib/react.js'></script>
+<script src='lib/react-dom.js'></script>
+<div id='container'></div>
+<script type="text/babel">
+
+	var Fish = (props) => {
+		return <div>{props.message}, Salmon</div>
+	}
+	var Button = () => {
+		return <button>Make the Fish dance :) </button>
+	}
+	var Pond = () => {
+		return (
+			<div id='pond'>
+				<Fish />
+				<Button />
+			</div>
+		);
+	}
+
+
+
+</script>

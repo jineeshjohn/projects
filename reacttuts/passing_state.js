@@ -6,7 +6,12 @@ var RandomMessage = React.createClass({
   getInitialState: function() {
     return { message: 'Hello, Universe' };
   },
+  mixins:[{
+    f1:function(){
+      alert('sss');
+    }}],
   onClick: function() {
+    debugger;
     var messages = ['Hello, World', 'Hello, Planet', 'Hello, Universe'];
     var randomMessage = messages[Math.floor((Math.random() * 3))];
 

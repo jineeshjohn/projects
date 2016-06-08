@@ -26,9 +26,6 @@ var Fish = (props) => {
 	return <div>{props.message}, Salmon</div>
 }
 var Button = () => {
-	onClick: function(){
-
-	},
 	return <button>Make the Fish dance :) </button>
 }
 var Pond = () => {
