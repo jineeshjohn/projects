@@ -1,0 +1,81 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='main'></div>
+<script type="text/babel">
+
+var BondBreakingConstraintsView = () => {
+	return(
+		<div>
+			<h3>Bond breaking constraints</h3>
+			<div>Choose the type of bond breaking constraint, then click individual bonds to apply.</div>
+			<div>Learn more about bond breaking constraints.</div>
+		</div>
+	);
+}
+var NumberOfStepsView = () => {
+	return(
+		<div>
+			<h3> Number of steps </h3>
+			<div> Set a limit for the longest pathway in a synthetic scheme.</div>
+			<div>Learn more about synthetic depth.</div>
+		</div>
+	);
+};
+
+var TriggeredReactionRulesView = () => {
+	return(
+		<div>
+			<h3>Reaction rules used in this search</h3>
+			<p>Rules are triggered according to the number of literature examples supporting them. Common rules include reaction types that are frequently used in the lab, they are considered both robust and versatile and are supported by many literature examples.</p>
+			<p>Uncommon or Rare rules are supported by fewer examples, but may potentially expose more novel synthetic approaches.</p>
+			<p>The Uncommon set also includes the Common rules, and the Rare set includes both the Uncommon and the Common rules.</p>
+		</div>
+	);
+};
+
+var ListItem = (props) => {
+	return <div className="nav-item" onClick={props.click}> { props.item.label } </div>
+};
+
+var OptionList = (props) => {
+	var ListItems = [
+				{id:'bond-breaking-constraints', label: 'Bond breaking constraints:'},
+				{id:'number-of-steps', label:'Number of steps:'},
+				{id:'bond-breaking-constraints', label:'Triggered reaction rules:'
+		}];
+
+	var Options = ListItems.map(function(item,idx){
+		return <ListItem item={item} key={idx} click={props.showDetails} />
+	});
+
+	return(
+		<div className="opts-list">
+			{Options}
+		</div>
+	);
+};
+
+var SynthesisSearchOpsContainer = React.createClass({
+	showDetails:function(){
+		console.log('I am here');
+
+	},
+	render:function(){
+		return(
+			<div id="synthesis-search-opts">
+				<OptionList showDetails={this.showDetails}/>
+				<div class="opts-details">
+					<BondBreakingConstraintsView isShown={this.} />
+					<NumberOfStepsView />
+					<TriggeredReactionRulesView />
+				</div>
+			</div>
+		);
+	}
+});
+
+ReactDOM.render(<SynthesisSearchOpsContainer />, document.querySelector('#main'));
+
+
+</script>

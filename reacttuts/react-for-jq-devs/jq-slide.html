@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#btn1").click(function() {
+
+            $("#box").animate({width: '400px'}, 1000);
+            //$("#box").show("slide", { direction: "left" }, 2000);
+
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <button id="btn1">Animate width</button>
+    <div id="box" style="background:#98bf21;height:100px;width:0px;margin:6px;display:non e;"></div>
+</body>
+
+</html>

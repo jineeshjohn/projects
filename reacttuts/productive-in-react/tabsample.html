@@ -1,0 +1,79 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<style>
+	.tab_selected{
+		color:red;
+	}
+	.tabs-panel{
+		display: none;
+	}
+	div.tabs-panel_selected{
+		display: block;
+	}
+</style>
+<div id='main'></div>
+<script type="text/babel">
+
+var FirstComp = () => {
+	return(<p> First content  </p>);
+};
+var SecondComp = () => {
+	return(<p> Second content  </p>);
+};var ThirdComp = () => {
+	return(<p> Third content  </p>);
+};
+
+var TabsExample = React.createClass({
+	getInitialState: function() {
+		return {
+			tabs: [
+				{title: 'first', content: <FirstComp />},
+				{title: 'second', content: <SecondComp />},
+				{title: 'third', content: <ThirdComp/> },
+				{title: 'four', content: 'Content 4'}
+			],
+			active: 0
+		};
+	},
+	render: function() {
+		return <div>
+			<TabsSwitcher items={this.state.tabs} active={this.state.active} onTabClick={this.handleTabClick}/>
+			<TabsContent items={this.state.tabs} active={this.state.active}/>
+		</div>;
+	},
+	handleTabClick: function(index) {
+		console.log(index);
+		this.setState({active: index})
+	}
+});
+
+var TabsSwitcher = (props) => {
+		var active = props.active;
+		return (
+			<div>
+				{props.items.map(function(item, index) {
+					return (<a key={index} href="#"
+						className={'tab ' + (active === index ? 'tab_selected' : '')}	onClick={props.onTabClick.bind(null,index)}>
+						{item.title}
+					</a>);
+				})}
+			</div>
+		);
+};
+
+var TabsContent = React.createClass({
+	render: function() {
+		var active = this.props.active;
+		var items = this.props.items.map(function(item, index) {
+			return <div key={index} className={'tabs-panel ' + (active === index ? 'tabs-panel_selected' : '')}>{item.content}</div>;
+		});
+		return <div>{items}</div>;
+	}
+});
+
+
+ ReactDOM.render(<TabsExample />, document.querySelector('#main'));
+
+
+</script>

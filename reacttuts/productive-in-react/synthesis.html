@@ -1,0 +1,181 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<style>
+	body{
+		font-family: 'Arial Regular', 'Arial';
+		font-weight: 400;
+		font-style: normal;
+		font-size: 13px;
+	}
+	.heading{
+		font-weight: 700;
+		font-style: normal;
+		font-size: 16px;
+		text-align: left;
+		color: #333333;
+		line-height: normal;
+	}
+	.synthesis-search-opts-container{
+		background-color:#ccc;
+		float: left;
+		border: 1px solid #000;
+	}
+	.tabs-menu{
+		background-color:#fff;
+		display:table-cell;
+		width: 300px;
+		border-right: 1px solid #000;
+		vertical-align:top;
+	}
+	.tabs-menu-item{
+		border-bottom: 1px solid #000;
+		padding: 5px;
+	}
+	.tab-menu-selected{
+		background-color:#ccc;
+		border-right: none;
+		margin-right:-1px;
+	}
+	.tabs-panels{
+		padding: 20px;
+		width: 540px;
+		display: table-cell;
+		vertical-align:top;
+
+	}
+	.tabs-panel{
+		display: none;
+	}
+	div.tabs-panel_selected{
+		display: block;
+	}
+	.synthesis-btn{
+		padding: 15px;
+		border-top: 1px solid #000;
+		clear: both;
+		height:22px;
+	}
+	.table-container{
+		display: table;
+	}
+	.table-row{
+		display: table-row;
+	}
+</style>
+<div id='main'></div>
+<script type="text/babel">
+
+
+var BondBreakingConstraintsView = () => {
+	var imgStyle = {width: '528px',height: '290px'};
+	return(
+		<div>
+			<h3 className="heading">Bond breaking constraints</h3>
+			<div>Choose the type of bond breaking constraint, then click individual bonds to apply.</div>
+			<div>Learn more about bond breaking constraints.</div>
+			<div><img src="mol.png" style={imgStyle} /></div>
+			<div>
+				<button>Protect (Do not break)</button>
+				<button>Target (break first)</button>
+				<button>Clear all constraints</button>
+			</div>
+		</div>
+	);
+}
+var NumberOfStepsView = () => {
+	return(
+		<div>
+			<h3 className="heading"> Number of steps </h3>
+			<div> Set a limit for the longest pathway in a synthetic scheme.</div>
+			<div>Learn more about synthetic depth.</div>
+		</div>
+	);
+};
+
+var TriggeredReactionRulesView = () => {
+	return(
+		<div>
+			<h3 className="heading">Reaction rules used in this search</h3>
+			<p>Rules are triggered according to the number of literature examples supporting them. Common rules include reaction types that are frequently used in the lab, they are considered both robust and versatile and are supported by many literature examples.</p>
+			<p>Uncommon or Rare rules are supported by fewer examples, but may potentially expose more novel synthetic approaches.</p>
+			<p>The Uncommon set also includes the Common rules, and the Rare set includes both the Uncommon and the Common rules.</p>
+		</div>
+	);
+};
+var MaxPrice = () => {
+	return(
+		<div>
+			<h3 className="heading">Maximum price per mol of starting material</h3>
+			<p>A starting material will be considered a termination point for the search along a branch of the retrosynthetic tree, unless its cost is greater than the value below.</p>
+			<p>The price per molecule stipulated is in United States Dollars per mol and is subject to change without warning by the respective starting material suppliers.</p>
+		</div>
+	);
+};
+
+
+
+var TabsSwitcher = (props) => {
+		var active = props.active;
+		return (
+			<div className='tabs-menu'>
+				{props.items.map(function(item, index) {
+					return (
+						<div key={index} className={'tabs-menu-item ' + (active === index ? 'tab-menu-selected' : '')}
+						onClick={props.onTabClick.bind(null,index)}> {item.title} </div>
+					);
+				})}
+			</div>
+		);
+};
+
+var TabsContent = React.createClass({
+	render: function() {
+		var active = this.props.active;
+		var items = this.props.items.map(function(item, index) {
+			return <div key={index} className={'tabs-panel ' + (active === index ? 'tabs-panel_selected' : '')}>{item.content}</div>;
+		});
+		return <div className='tabs-panels'>{items}</div>;
+	}
+});
+
+var SynthesisButton = () => {
+	return(
+		<div className="synthesis-btn"> <button  style={{float:'right', marginBottom:'15px'}}> Synthesise </button> </div>
+	);
+}
+var SynthesisSearchOpsContainer = React.createClass({
+	getInitialState: function() {
+		return {
+			tabs: [
+				{title: 'Bond breaking constraints:', content: <BondBreakingConstraintsView />},
+				{title: 'Number of steps:', content: <NumberOfStepsView />},
+				{title: 'Triggered reaction rules:', content: <TriggeredReactionRulesView/> },
+				{title: 'Maximum price in USD/mol:', content: <MaxPrice/> },
+				{title: 'Maximum price in USD/mol:', content: <MaxPrice/> }
+			],
+			active: 0
+		};
+	},
+	render: function() {
+		return(
+			 <div className="synthesis-search-opts-container">
+			 	<div className="table-container">
+					<TabsSwitcher items={this.state.tabs} active={this.state.active} onTabClick={this.handleTabClick}/>
+					<TabsContent items={this.state.tabs} active={this.state.active}/>
+				</div>
+				<SynthesisButton />
+			</div>
+		);
+	},
+	handleTabClick: function(index) {
+		console.log(index);
+		this.setState({active: index})
+	}
+});
+
+
+ ReactDOM.render(<SynthesisSearchOpsContainer />, document.querySelector('#main'));
+
+
+</script>
