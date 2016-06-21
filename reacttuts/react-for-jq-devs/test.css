@@ -1,0 +1,46 @@
+
+body{
+    background-color: beige;
+}
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+#slide {
+    position: absolute;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    background: tan;
+    transition: left 2s;
+}
+.slideTrans{
+	left:100px;
+	transition: 1s;
+}
+
+#slide:hover {
+    transition: 1s;
+    left: 100px;
+}
+.nav{
+	margin: 0px;
+	padding: 0px;
+}
+.nav li{
+	list-style-type: none;
+}
+.box img {
+    transition-property: left;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    position: absolute;
+    left: 0px;
+}
+.box img.clicked{
+   left: 150px;
+ }

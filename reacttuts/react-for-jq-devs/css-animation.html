@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='../lib/jquery.js'></script>
+
+<link rel="stylesheet" href="test.css" />
+</head>
+<body>
+
+<div class="wrapper">
+	<ul class="nav" >
+		<li>This is test</li>
+		<li>This is test</li>
+		<li>This is test</li>
+		<li>This is test</li>
+		<li>This is test</li>
+		<li>This is test</li>
+		<li>This is test</li>
+	</ul>
+    <div id="slide">hi</div>
+</div>
+<div class="box">
+    <img src="https://www.google.com/images/srpr/logo11w.png" width="100" />
+</div>
+<script type="text/javascript">
+$('.box img').on('click', function() {
+    $(this).toggleClass('clicked');
+});
+	$(function(){
+		$('li').bind('click', function(){
+			$('#slide').addClass('slideTrans');
+		});
+	});
+</script>
+
+</body>
+</html>
+

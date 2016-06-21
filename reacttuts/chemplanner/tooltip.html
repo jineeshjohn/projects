@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css">
+    </script>
+</head>
+
+<body>
+    <style>
+    .popover.right .arrow {
+        border-right-color: #0581D1;
+    }
+    
+    div.popover {
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -o-border-radius: 0px;
+        border-radius: 0px;
+        border: 1px solid #0581D1;
+        box-shadow: initial;
+    }
+    
+    .popover-content {
+        font-size: 13px;
+        padding: 7px;
+        max-width: 200px;
+    }
+    
+    #error .popover.right .arrow {
+        border-right-color: red;
+    }
+    
+    #error div.popover {
+        border-radius: 0px;
+        border: 1px solid red;
+        box-shadow: initial;
+    }
+    .popover.right .arrow:after{
+    	border-right-color: #FFE6E6;
+    }
+    #error .popover-content {
+        font-size: 13px;
+        padding: 7px;
+        max-width: 200px;
+        background-color: #FFE6E6;
+        margin-left: -1px;
+    }
+    div.popover {
+        border: 1px solid red;
+    }
+
+    .popover.right .arrow {
+        border-right-color: #FFE6E6;
+    }
+    .popover-content {
+        background-color: #FFE6E6;
+    }
+
+    </style>
+<!--     <div class="popover fade right in" style="top: 139px; left: 200px; display: block;">
+        <div class="arrow"></div>
+        <h3 class="popover-title"></h3>
+        <div class="popover-content">Maximum SM price in US Dollers per mol = <b>$1000</b></div>
+    </div> -->
+
+    <div id="error">
+        <div class="popover fade right in" style="top: 139px; left: 200px; display: block;">
+            <div class="arrow"></div>
+            <h3 class="popover-title"></h3>
+            <div class="popover-content">Maximum SM price in US Dollers per mol = <b>$1000</b></div>
+        </div>
+    </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+    <div style="width:200px;" href="#" data-trigger="hover" data-content="Maximum SM price in US Dollers per mol = <b>$1000</b>">Hover over me</div>
+
+
+    <div style="width:200px;" href="#" data-trigger="hover" data-content="Maximum SM price in US Dollers per mol = <b>$1000</b>">Hover over me</div>
+
+
+    <script type="text/javascript">
+    $('div[data-trigger="hover"]').popover({
+        html: true
+    });
+    </script>
+</body>
+
+</html>

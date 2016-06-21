@@ -1,0 +1,34 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<script src='./data.js'></script>
+<style>
+.facetList{
+	height: 500px;
+	width: 300px;
+	overflow: scroll;
+}
+</style>
+<div id='main'></div>
+<script type="text/babel">
+
+var Facets = (props) =>{
+	var facets = props.reagent.map(function(item,index){
+		var displayItem = props.mols[item.value[0]];
+		return(
+			<div key={index}>
+					<input type='checkbox' />
+					<label>{displayItem?displayItem.names:'none'} <span>{item.count}</span></label>
+			</div>
+		);
+	});
+	return(
+		<div className='facetList'>{facets}</div>
+	);
+};
+
+
+ ReactDOM.render(<Facets reagent={jsonData.records.reagent} mols={jsonData.metadata.molecules} />, document.querySelector('#main'));
+
+
+</script>

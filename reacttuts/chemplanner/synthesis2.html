@@ -27,6 +27,8 @@
 		width: 300px;
 		border-right: 1px solid #000;
 		vertical-align:top;
+		position: relative;
+		z-index: 2;
 	}
 	.tabs-menu-item{
 		border-bottom: 1px solid #000;
@@ -61,6 +63,13 @@
 	}
 	.table-row{
 		display: table-row;
+	}
+	.floatingDiv{
+		background-color: beige;
+		position: relative;
+		left: -558px;
+		z-index: 1;
+		transition: left 1s linear;
 	}
 </style>
 <div id='main'></div>
@@ -136,7 +145,7 @@ var TabsContent = React.createClass({
 		var items = this.props.items.map(function(item, index) {
 			return <div key={index} className={'tabs-panel ' + (active === index ? 'tabs-panel_selected' : '')}>{item.content}</div>;
 		});
-		return <div className='tabs-panels'>{items}</div>;
+		return <div className='tabs-panels'><div className='floatingDiv'>{items}</div></div>;
 	}
 });
 

@@ -7,18 +7,23 @@
     $(document).ready(function() {
         $("#btn1").click(function() {
 
-            $("#box").animate({width: '400px'}, 1000);
-            //$("#box").show("slide", { direction: "left" }, 2000);
-
+            $("#box").animate({
+                "left": "0px"
+            }, 'slow',function(){
+                $(this).css({'left':'', 'position':''});
+            });
         });
 
     });
+
     </script>
 </head>
 
 <body>
     <button id="btn1">Animate width</button>
-    <div id="box" style="background:#98bf21;height:100px;width:0px;margin:6px;display:non e;"></div>
+    <div style="width:500px;margin:auto;">
+        <div id="box" style="background:tan;height:100px;position:relative;width:400px;left:-90px"></div>
+    </div>
 </body>
 
 </html>
