@@ -81,45 +81,35 @@ var TabsContent = React.createClass({
 	}
 });
 
-var SynthesisButton = () => {
-	return(
-		<div className="synthesis-btn"> <button  style={{float:'right', marginBottom:'15px'}}> Synthesise </button> </div>
-	);
-}
+
 var SynthesisSearchOpsContainer = React.createClass({
 	getInitialState: function() {
 		return {
-			tabs: [
-				{title: 'Bond breaking constraints:', content: <bbview />},
-				{title: 'Number of steps:', content: <NumberOfStepsView />},
-				{title: 'Triggered reaction rules:', content: <TriggeredReactionRulesView/> },
-				{title: 'Maximum price in USD/mol:', content: <MaxPrice/> },
-				{title: 'Starting Material databases:', content: <MaxPrice/> },
-				{title: 'Reaction databases:', content: <MaxPrice/> },
-				{title: 'Stereochemistry rules:', content: <MaxPrice/> },
-				{title: 'Scoring profile parameters:', content: <MaxPrice/> },
-				{title: 'Search preferences:', content: <MaxPrice/> }
-			],
 			tabover: -1,
 			active: 0
 		};
 	},
 	render: function() {
+		var tabs =  [
+			{title: 'Number of steps:', content: <NumberOfStepsView />},
+			{title: 'Triggered reaction rules:', content: <TriggeredReactionRulesView/> },
+			{title: 'Maximum price in USD/mol:', content: <MaxPrice/> }
+		];
 		return(
 			 <div className="synthesis-search-opts-container">
 
 			 	<div className="table-container">
 			 		<div className="table-row">
-						<TabsSwitcher items={this.state.tabs}
+						<TabsSwitcher items={tabs}
 							active={this.state.active}
 							tabover={this.state.tabover}
 							onTabOver={this.handleTabOver}
 							onTabOut={this.handleTabOut}
 							onTabClick={this.handleTabClick}/>
-						<TabsContent items={this.state.tabs} active={this.state.active}/>
+						<TabsContent items={tabs} active={this.state.active}/>
 					</div>
 				</div>
-				<SynthesisButton />
+
 			</div>
 		);
 	},

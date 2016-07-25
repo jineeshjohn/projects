@@ -1,0 +1,62 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+<div id='container'></div>
+<script type="text/babel">
+
+	var Message = (props) => {
+		return(
+		    <div>
+				<p> This dialog content {props.msg}</p>
+			</div>
+		);
+	};
+	var TextInput = React.createClass({
+		getInitialState: function() {
+			return {
+				msg:this.props.msg
+			}
+		},
+		updateText: function(event){
+			this.setState({msg: event.target.value});
+			this.props.msg = event.target.value;
+			console.log(this.props.msg);
+			console.log(this);
+			console.log(event.target.value);
+		},
+		render: function() {
+			return(
+				<div>  <div>{this.props.msg} : {this.state.msg} </div>
+					<input type="text" onChange={this.updateText} />
+				</div>
+			);
+		}
+	});
+
+	var Container = React.createClass({
+		getInitialState:function(){
+			return {
+				show:false,
+				msg:'this is the default message'
+			}
+		},
+
+		render:function(){
+			return (
+				<div>
+					<TextInput msg={this.state.msg} />
+					<Message msg={this.state.msg} />
+				</div>
+			);
+		}
+	});
+
+
+
+	ReactDOM.render(<Container /> ,   document.querySelector('#container'));
+
+
+</script>
+
+

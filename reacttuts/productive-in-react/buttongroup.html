@@ -1,0 +1,41 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+
+<div id='main'></div>
+<script type="text/babel">
+
+var RadioButtonGroup = React.createClass({
+    getInitialState: function getInitialState() {
+        return {
+            active: this.props.active || 0
+        };
+    },
+
+    clickHandler: function clickHandler(e) {
+        // Getting an array of DOM elements
+        // Then finding which element was clicked
+        var nodes = Array.prototype.slice.call( e.currentTarget.children );
+        var index = nodes.indexOf( e.target );
+        this.setState({ active: index });
+    },
+
+    render: function render() {
+        var buttons = this.children.map(function(child, i) {
+            if (i === this.state.active) child.props.className += ' active';
+            return child;
+        }, this);
+
+        return (
+            <div className="radio-button-group" onClick={ this.clickHandler }>
+                { buttons }
+            </div>
+        )
+    }
+});
+
+ ReactDOM.render(<RadioButtonGroup />, document.querySelector('#main'));
+
+
+</script>

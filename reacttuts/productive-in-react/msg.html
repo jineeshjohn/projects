@@ -1,0 +1,27 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='main'></div>
+
+<script type="text/babel">
+
+var RandomMessage = React.createClass({
+    getInitialState: function() {
+        return { message: 'Hello, Universe' };
+    },
+    changeMessage: function(e) {
+        this.setState({ message: e.target.value });
+    },
+    render: function() {
+        return (
+			<div>
+
+				{this.state.message}
+				<p><input type="text" onChange={ this.changeMessage } /></p>
+			</div>
+        );
+    }
+});
+
+ReactDOM.render(<RandomMessage />, document.querySelector('#main'));
+</script>

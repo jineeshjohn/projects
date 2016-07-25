@@ -10,7 +10,8 @@
 		return(
 
 		    <div style={{width: 250, backgroundColor:'tan', height: 100, position: 'absolute', zIndex: 3, border: '1px solid #000', display: visibility}}>
-				<p> This dialog content </p>
+				<p> This dialog content {props.msg}</p>
+				<input type="text" onChange={props.updateText} />
 				<div>
 					<button>Ok</button>
 					<button onClick={props.toggleDialog}>Cancel</button>
@@ -22,17 +23,21 @@
 	var Container = React.createClass({
 		getInitialState:function(){
 			return {
-				show:false
+				show:false,
+				msg:'this is the default message'
 			}
 		},
 		toggleDialog:function(){
-			debugger;
 			this.setState({show:!this.state.show});
+		},
+		updateText: function(event){
+			console.log(this.state.msg);
+			this.setState({msg: event.target.value});
 		},
 		render:function(){
 			return (
 				<div>
-					<Dialog toggleDialog={this.toggleDialog} show={this.state.show} />
+					<Dialog toggleDialog={this.toggleDialog} show={this.state.show} msg={this.state.msg} updateText={this.updateText} />
 					<Button toggleDialog={this.toggleDialog}  />
 				</div>
 			)

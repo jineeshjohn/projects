@@ -1,0 +1,27 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='main'></div>
+
+<script type="text/babel">
+
+var Checkbox = React.createClass({
+    getInitialState: function() {
+        return { isChecked: false };
+    },
+    changeMessage: function(e) {
+        this.setState({ isChecked: !this.state.isChecked });
+        console.log(e.target.checked);
+    },
+    render: function() {
+        return (
+			<div>
+				JJ: {this.state.isChecked?<div>hi</div>:''} :KK
+				<p><input type="checkbox" checked={this.state.isChecked} onChange={ this.changeMessage } /></p>
+			</div>
+        );
+    }
+});
+
+ReactDOM.render(<Checkbox />, document.querySelector('#main'));
+</script>

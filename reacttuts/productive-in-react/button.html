@@ -1,0 +1,28 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+
+<div id='main'></div>
+<script type="text/babel">
+
+var Button = function(){
+	var buttonClick = function(e) {
+
+		console.log(e.target.attributes);
+
+
+	};
+	return (
+		<div onClick={buttonClick}>
+			<button a='1' key={1} className='btn1'>Hi </button>
+			<button b='1' key={2} className='btn2'>Hi there </button>
+		</div>
+	);
+}
+
+
+ ReactDOM.render(<Button />, document.querySelector('#main'));
+
+
+</script>

@@ -1,0 +1,61 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+<div id='container'></div>
+<script type="text/babel">
+ 	 var App = React.createClass({
+ 	     getInitialState: function() {
+ 	         return {message: ''}
+ 	     },
+ 	     appHandleSubmit: function(txt) {
+ 	         this.setState({message: txt});
+ 	         console.log(txt);
+ 	     },
+ 	     render: function() {
+ 	         return (
+ 	             <div className='myApp'>
+ 	             <MyForm onChange={this.appHandleSubmit}/>
+ 	             <Message message={this.state.message}/>
+ 	             </div>
+ 	         );
+ 	     }
+ 	 });
+
+ 	 var MyForm = React.createClass({
+ 	     handleSubmit: function(txt) {
+ 	         this.props.onChange(txt);
+ 	     },
+ 	     handleChange: function(e) {
+ 	         console.log(e.target.value);
+ 	         this.setState({message: e.target.value});
+ 	         this.handleSubmit(e.target.value);
+ 	     },
+ 	     render: function() {
+ 	         return (
+ 	             <form className="reactForm" onChange={this.handleChange}>
+ 	             <input type='text' />
+ 	             </form>
+ 	         );
+ 	     }
+ 	 });
+
+ 	 var Message = React.createClass({
+ 	     render: function() {
+ 	         return (
+ 	             <div className="message">
+ 	                 <p>{this.props.message}</p>
+ 	             </div>
+ 	         )
+ 	     }
+ 	 });
+
+
+
+
+	ReactDOM.render(<App /> ,   document.querySelector('#container'));
+
+
+</script>
+
+
