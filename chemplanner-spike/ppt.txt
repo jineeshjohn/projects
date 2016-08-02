@@ -1,0 +1,105 @@
+The problem
+
+###Task given by Mark
+1) Decorator + mixin pattern
+	~order of execution not clear
+	~Not clear what is applied when decorators are used
+	~poorly named
+	~overzealous abstraction
+	~difficult to test decorators
+	~extended from multiple files(hard to follow)
+	~too rigid
+2) Changing/cleaning api end points( permissions, roles, permissions groups)
+	~validation(backend and frontend)
+	~routiong(error pages)
+	~separate bower compnent with no default config
+	~error in session
+3) draw view without data( cache views ) the re render( manual way )
+	~poor separation of view + data
+	~we create singletons
+	~hard to test dependancies
+	~partial landing of view before session verification
+4) duplicate views/templates/models for create  + edit
+	~models were slightly different due to varing end points
+5) Templates everything even static html/content
+	~eg organisation select box
+	~add skeleton for static content to index.html
+	~separate html files for static content
+
+		Angular way ~ setting in scope
+		<select
+            ng-model="selection"
+            ng-options="option.value as option.text for option in options">
+            <!-- You can have ONE default, null selection option. -->
+            <option value="">- - Make Selection - -</option>
+        </select>
+6) History is not managed in chemplanner
+
+
+
+
+
+
+
+//react todo
+React - form - validation
+https://www.youtube.com/playlist?list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b
+https://thescenery.co/guides/react-js-from-scratch-part-1/
+spike on testing view with - http://airbnb.io/enzyme/
+render only when response comes - promise and then states updates ui updates
+
+translate ui property to javascript flags , boolean, eg: display: none, block
+single root component for react
+how the async is managed componentMount
+compile jsx to js on sublime save -
+loading the views
+managing the router
+develop a pagination
+require js fail to read contents - due to file optimizer
+namespace components Tabs.Panel
+Tabs
+	Tabs.panel
+
+//takeaway
+use styles instead of style
+component level show and hide
+testing in single html or separate js files ( debugger easier)
+single html file does the embedding
+html to jsx => http://magic.reactjs.net/htmltojsx.htm
+jsx to react/js-native => https://babeljs.io/repl/
+arrow function pointers
+
+container components and presentation components
+react does - separating technologies and not concerns
+developers are better able to save time by using and creating common abstractions
+clear previously loaded view when state changes - zero result page in chem literature results
+what does this bring to the table
+progressive development
+Mock http, from react team
+Training for reactjs
+// ES6 features
+a) modules, let, const, enhanced object literals, default parameters, template strings, classes, arrow functions, promises,
+destructing, spread operator
+//flux-pattern
+Dispatchers
+Actions
+Stores
+View
+
+Action => Dispatcher => Store => View
+[V+V] [M|S] [A+D]
+View+Store+Actions+Dispatcher
+
+
+All datatypes in js
+fn, object, array, num, null, undefined, true, string..
+
+Higher-Order Components In ReactJS
+
+//My react- takeaway
+how to structure react-way
+jsx -x jsx -w src/ build/ ~[compile the jsx to js comes with[[ npm install -g react-tools ]]]
+
+//react history
+php=>xphp=>jsx
+JavaScript syntax extended
