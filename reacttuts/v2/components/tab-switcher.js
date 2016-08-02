@@ -34,13 +34,13 @@ define(function(){
 			);
 	};
 
-	function mapStateToProps(state) {
-		console.log(state);
-	    return {
-	        tabover: state.hover,
-	        active: state.clicked
-	    };
-	}
-
-	return connect(mapStateToProps)(TabsSwitcher);
+	// function mapStateToProps(state) {
+	// 	console.log(state);
+	//     return {
+	//         tabover: state.hover,
+	//         active: state.clicked
+	//     };
+	// }
+	return TabsSwitcher;
+	//return connect(mapStateToProps)(TabsSwitcher);
 });

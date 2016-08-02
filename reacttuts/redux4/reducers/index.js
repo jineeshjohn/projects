@@ -1,15 +1,18 @@
-import { combineReducers } from 'redux';
+define(function(require) {
+    var { combineReducers } = require( 'redux');
 
-// Reducers
-import userReducer from './user-reducer';
-import widgetReducer from './widget-reducer';
-import searchLayoutReducer from './search-layout-reducer';
+    // Reducers
+    var userReducer = require( './user-reducer');
+    var widgetReducer = require( './widget-reducer');
+    var searchLayoutReducer = require( './search-layout-reducer');
 
-// Combine Reducers
-var reducers = combineReducers({
-    userState: userReducer,
-    widgetState: widgetReducer,
-    searchLayoutState: searchLayoutReducer
+    // Combine Reducers
+    var reducers = combineReducers({
+        userState: userReducer,
+        widgetState: widgetReducer,
+        searchLayoutState: searchLayoutReducer
+    });
+
+    return reducers;
+
 });
-
-export default reducers;

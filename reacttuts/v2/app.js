@@ -12,6 +12,7 @@ define(function(require){
 	    window.devToolsExtension && window.devToolsExtension()
 	);
 
+
 	var App = React.createClass({
 		render: function() {
 			return(
