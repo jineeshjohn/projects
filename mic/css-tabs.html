@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Css tabs</title>
+    <style>
+    .tab .tab-title {
+        font-weight: bold;
+    }
+
+    .tab .tab-content {
+        background-color: #ccc;
+    }
+
+    .tabwrap .selected {
+        border: 1px solid #000;
+    }
+
+    input {
+        width: 0.1px;
+        height: 0.1px;
+        margin: 0;
+        padding: 0;
+    }
+
+    input:checked ~ label {
+        color: red;
+    }
+
+    .divclass {
+        border: 1px solid;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 0px;
+    }
+
+    .spanclass {
+        border: 1px solid;
+        display: inline-block;
+        padding: 10px;
+    }
+
+    .selected {
+        border-bottom: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="divclass">
+        <span class="spanclass selected"> tab 1 </span>
+        <span class="spanclass"> tab 2 </span>
+        <span class="spanclass"> tab 3 </span>
+    </div>
+    <!--  <div>
+        <div>
+            <input type="radio" id="custom-price" name="tab" />
+            <label for="custom-price"> Custom price :</label>
+        </div>
+        <div>
+            <input type="radio" id="ca" name="tab" />
+            <label for="ca">Commercial Availability :</label>
+        </div>
+    </div>
+    <div class="tabwrap">
+        <div class="tab">
+            <div class="tab-title"> Tab 1 title </div>
+            <div class="tab-content"> Tab 1 content </div>
+        </div>
+        <div class="tab">
+            <div class="tab-title"> Tab 2 title </div>
+            <div class="tab-content"> Tab 2 content </div>
+        </div>
+    </div> -->
+</body>
+
+</html>
