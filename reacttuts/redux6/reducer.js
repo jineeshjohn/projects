@@ -1,22 +1,15 @@
 define(function(require) {
-    var { combineReducers } = require( 'redux');
 
     const initialState = {
-        msg: "Welcome to Dynamic application development"
+        msg: "Welcome to Dynamic application development..."
     };
 
-    const initialPageState = function(state = initialState, action) {
-        switch (action.type) {
-            case 'WELCOME_STATE':
-                return Object.assign({}, state,  action);
-        }
-        return state;
+    function basicReducer(state = initialState, action){
+        return {
+            initialPageState: state
+        };
     }
 
-    var reducers = combineReducers({
-        initialPageState: initialPageState
-    });
-
-    return reducers;
+    return basicReducer;
 
 });
