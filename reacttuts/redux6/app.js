@@ -6,9 +6,7 @@ define(function(require){
 
 	function Hello() {
 		return (
-
-				<Welcome store={store} />
-
+			<Welcome store={store} />
 		);
 	};
 	return Hello;
