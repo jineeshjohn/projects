@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>reveal.js - Barebones</title>
+    <link rel="stylesheet" href="reveal.min.css">
+    <link rel="stylesheet" href="black.min.css">
+    <!-- <link rel="stylesheet" href="pdf.min.css"> -->
+    <style type="text/css">
+    li {
+        color: #0f7de0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Spike Chemplanner</h1>
+            </section>
+            <section>
+                <img src="./lets-get-started.jpg" />
+                <h2>Lets get started :)</h2>
+            </section>
+            <section>
+                <img src="./the_problem.jpg" />
+            </section>
+            <section>
+                <h4> Directly touching the dom for event binding, attributes change etc..  </h4>
+                <ul>
+                    <li> put direct dependency on selector engine </li>
+                </ul>
+                <img src="./dom-dependency.png" />
+            </section>
+            <section>
+                <h4>
+                   Backbone -  Re-Rendering view will loose our state
+                </h4>
+                <ul class="fragments">
+                    <li>Leads to creating multiple views for small state change or any ui state change</li>
+                    <img src="./re-render.jpg" />
+                    <li class="fragment">Most of this views cannot be re-used</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Managing the history for complex application is difficult</h4>
+                <img src="./history-mgmt.jpg" />
+            </section>
+            <section>
+                <h4>Events - in sub-views is a nightmare to debug</h4>
+                <img src="./events-flow.jpg" />
+            </section>
+            <section>
+                <h3>Decorator + mixin pattern</h3>
+                <ul>
+                    <li>Difficult to test decorators</li>
+                    <li>Order of execution not clear</li>
+                    <li>Not clear what is applied when decorators are used</li>
+                    <li>Poorly named</li>
+                    <li>Overzealous abstraction</li>
+                    <li>Extended from multiple files(hard to follow)</li>
+                    <li>Too rigid</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Changing/cleaning api end points( permissions, roles, permissions groups)</h3>
+                <ul>
+                    <li>Validation(Back-end and Front-end)</li>
+                    <li>Routing(error pages)</li>
+                    <li>Error in session</li>
+                    <!-- <li>Separate bower component with no default config</li> -->
+                </ul>
+            </section>
+            <section>
+                <h3>Draw view without data( cache views ) the re render( manual way )</h3>
+                <ul>
+                    <li>Poor separation of view + data</li>
+                    <li>Mostly use singletons</li>
+                    <img src="singletons.jpg" />
+                    <li>Hard to test dependencies</li>
+                    <li>Partial landing of view before session verification</li>
+                </ul>
+            </section>
+            <section>
+                <h2> OMG Lets change everything to react now </h2>
+                <img src="./lets-change.png" />
+            </section>
+            <section>
+                <h4> Chemplanner(34600) and hub (8642) scaled up to 43,242 lines of code </h4>
+                <img src="./nightmare.gif" />
+            </section>
+            <section>
+                <h4> Progressive enhancement</h4>
+                <img src="./progressive-enhancement.jpg" />
+            </section>
+            <section>
+                <h4>Setup the basics</h4>
+                <ul class="fragments">
+                    <li class="fragment">Can we inject react view in to backbone view? </li>
+                    <li class="fragment">Does react support requirejs?</li>
+                    <li class="fragment">How do we transpile jsx on the fly?</li>
+                    <li class="fragment">Can we use same build for backbone and react?</li>
+                    <li class="fragment">Can we serve backbone views and react views from single file which we use in production?</li>
+                    <li class="fragment">Can we add linting support for js, es6 and jsx </li>
+                    <img class="fragment" src="./yes-we-can.jpg" />
+                </ul>
+            </section>
+            <section>
+                <img src="./lets-see.jpg" />
+            </section>
+            <section>
+                <ul class="fragments">
+                    <li class="fragement"> Integrated EsLint </li>
+                    <li class="fragement"> Integrated dependency loader to transpile jsx</li>
+                    <li class="fragement"> Setup build step for development and production environments</li>
+                    <li class="fragement"> And a sample with all integrated </li>
+                </ul>
+            </section>
+            <section>
+                <h4> Todos </h4>
+                <ul>
+                    <li>Form validation </li>
+                    <li>Unit testing - one option (enzyme)</li>
+                    <li>Server side rendering</li>
+                </ul>
+            </section>
+            <section>
+                <h6 class="fragement">Questions</h6>
+            </section>
+            <section>
+                <em class="fragement"> Thank you! </em>
+            </section>
+        </div>
+    </div>
+    <script src="reveal.min.js"></script>
+    <script>
+    Reveal.initialize();
+    </script>
+</body>
+
+</html>
