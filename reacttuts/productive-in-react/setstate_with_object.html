@@ -1,0 +1,55 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='main'></div>
+
+<script type="text/babel">
+var moldata= {
+"molecules":{"MXCI00004760":{"availability":{"emolecules_id":"26757534"},"fgroups":["PHENOL","CARBONYL","CARBOXYLIC_ACID"],"formula":"C7 H6 O3","inchi":"InChI=1S/C7H6O3/c8-6-4-2-1-3-5(6)7(9)10/h1-4,8H,(H,9,10)","inchikey":"YGSDEFSMJLZEOE-UHFFFAOYSA-N","mass":"138.1207","molfilez":"pZM7DgIhEIZ7TjEXWDIzvEvjWup2XsDYWWnl7QXEfbGFWSaEwM_Pl2EAAXC43e6P5_uFBpksejLcAwEASUwBKXA-FgIIU4Mi_AYlQghw5WgXcdKhVESuQKwLEw6O4-Z5G6MoS0pHUjveSSFptS97vXK4i5IKw2gaKVMuHUvWTI251JTh_1xYBq9s4x0BS2UMb1KGPdWNPOd844ka3kssJud-euZfVeWFtaprb3SZ2hvntvZGqKvVCPWbaqi5Jv_Jtddldek9A5wuvfgA","molregno":"695","names":["salicylic acid","2-hydroxybenzoic acid"],"retro":"60","size":["218","200"]},"MXCI00007202":{"availability":{},"molfilez":"41JQcExOTs0pqiw2MDUwMjQzsDA0NnJRMFRQUDDUMwABBRAwQGZzcQEJGFJAYkCBpaWlQpgRUDmXr4KCq58LFwA","molregno":"372385","names":["triacylglycerol lipase","EC 3.1.1.3","lipase","porcine pancreatic lipase","porcine pancreas lipase","rabbit gastric lipase","SAM II lipase","Lipomod PC","Novozym 435","Newlase F","Chirazyme","lipase AH-S","lipase AH-SE","lipase AK","lipase AP","lipase AP 6","lipase AY","lipase B","lipase CA","lipase CE","lipase CV","lipase GC","lipase F-AP 15","lipase LP","lipase MY","lipase OF","lipase P","lipase PL","lipase PS","lipase P-30","lipase PS-30","lipase YS","lipase A","lipase AH","lipase C"],"no_structure":"1"},"MXCI00018220":{"availability":{"emolecules_id":"530441"},"fgroups":["PHENOL","CARBONYL","ESTER","ALKYL_ESTER_X"],"formula":"C8 H8 O3","inchi":"InChI=1S/C8H8O3/c1-11-8(10)6-4-2-3-5-7(6)9/h2-5,9H,1H3","inchikey":"OSWPMRLSEDHDFF-UHFFFAOYSA-N","mass":"152.1473","molfilez":"rVMxcgMhDOx5hT5gRhIIUOmxU9ru8gFPulR2ld9Hx935iHGFo2FuxN5qZxHIAeyv16_v288dBZkSFhI-AgEAeZwCpsA2dw6IpgULsCZLqCp8stGdbXbolVnnjCjoJgeHR3G7HrEgVYU9S8C5NpnLMZXNC_kkccyLVURCftdL8FLKP_bFMqTWy2VAxbLIaexE9mAyl_UcpDrkpemu3VGIYypNd9-5afaS11rBjCMqNiZcv9uwzGioP57R2HONJT3X9qnnmmjuURMtL1HtdQUIe26p8_6M5sr9q3AC-Dgf3S8","molregno":"15318","retro":"34","size":["252","210"]},"MXCI00029079":{"availability":{"emolecules_id":"26757312"},"fgroups":["ARYL_ESTER_X","CARBONYL","CARBOXYLIC_ACID","ESTER"],"formula":"C9 H8 O4","inchi":"InChI=1S/C9H8O4/c1-6(10)13-8-5-3-2-4-7(8)9(11)12/h2-5H,1H3,(H,11,12)","inchikey":"BSYNRYMUTXBXSQ-UHFFFAOYSA-N","mass":"180.1574","molfilez":"pZM7bgQhDIZ7TuELLPIDDC6j3ZRJulxglS5VUuX28QyT2QdbRGBZCH7Z39jgCQBP5_PH59fPN2ZkUqxkfAICAIq4GCyG1_sQgGRx2IS_zWZmBu_s4cEPB4pimqABiemCg-OefO27bcot5YAxZcExCkfVUlstJamMUTB6G9OUvRbvjWqhyVp6ytv_KRJNlCbfyDO0EjYKV6xjtXhGtnVe_IZKmu1oZl68D0lt6ibeyPswQW61cEk2SiHB3CYnJxu6F0_i1S8_blNlXe_V1Kuemx-q2qsOLf3XHFr7WFetj82wzNO9qkDUEVwifqhKTygr9zb2BeD59RR-AQ","molregno":"25822","retro":"17","size":["273","228"]},"MXCI00457862":{"availability":{"emolecules_id":"4351796"},"fgroups":["ARYL_ESTER_X","CARBONYL","ESTER","ALKYL_ESTER_X"],"formula":"C10 H10 O4","inchi":"InChI=1S/C10H10O4/c1-7(11)14-9-6-4-3-5-8(9)10(12)13-2/h3-6H,1-2H3","inchikey":"ONWPLBKWMAUFGZ-UHFFFAOYSA-N","mass":"194.184","molfilez":"rZOxTsQwDIb3PoVfgMh27MQeEccIbLzAiY0JJt4et-ldC-mAclhRlfx1Ptm_2wng_nx-e__4-kRFpoJGzicgAKCEc8AcuN9PE5DMC1bhslnD3eGVI32Kwx0m8yzzLoCmtuHg4Xp5v66xKguFU2avjcdSZYyy1cKpivkQJW6oFDms5eXvteRUi-u_-RLjEuJ8q7s5qaGO-ULJi2rzxYXGKDtfbphRUIo0Nzixm43NaPbUae0tGw5RogKrvvoStoxNOiiYa2lVubmOfnUXX3LKikPfSxjCy3P7_Zualxe_VelzI0v73DiXPjegtVcDar0aUO_VAoSHKvU1GNBBb6H2vQWUDnqrSw0_c58AHp9P0zc","molregno":"440243","retro":"4","size":["260","268"]}
+
+},
+"variation":{"citation":{"authors":["CIPICIANI, A.","FRINGUELLI, F.","SCAPPINI, A. M."],"doi":"10.1016/0040-4020(96)00519-4","journal":{"coden":"TETRAB","name":"Tetrahedron","number":"29","pages":["9869","9876"],"volume":"52","year":1996},"language":"EN","location":"Dip. Chim., Univ. Perugia, I-06100 Perugia, Italy","title":"Enzymatic Hydrolysis of Acetoxy- and Phenethylbenzoates by Candida cylindracea Lipase."},"pathways":[{"name":"A","number_of_steps":1,"steps":[{"number":1,"variation_id":"RXCI90406710"}]}],"products":[{"classification_broad":"228413385171318","classification_medium":"255624291255456","classification_narrow":"319657680541492","molecule_id":"MXCI00029079"},{"classification_broad":"228865595724809","classification_medium":"312728981598106","classification_narrow":"326858758723330","molecule_id":"MXCI00018220"},{"classification_broad":"248578519645009","classification_medium":"320783660332271","classification_narrow":"368604502722482","molecule_id":"MXCI00004760"}],"reactants":[{"molecule_id":"MXCI00457862"}],"stages":[{"ph":7.2,"reagent":["MXCI00007202"]}],"variation":{"comments":"Ratio = 0:100:0 for products 1,2,3","conversion":100,"description":"lipase (Candida cylindracea)","id":"RXCI90406710","reaction_id":"RXCI90406710","refno":"199644043","source":"CIRX"}}};
+
+
+var LabelOnly = React.createClass({
+    render: function(){
+        console.log('in label only', this.props);
+        return (
+            <div>
+                <div>{this.props.msg}</div>
+                <div>{this.props.mols.variation.citation.language}</div>
+
+            </div>
+
+        );
+    }
+});
+
+var MessageBox = React.createClass({
+    render: function(){
+        console.log('in messagebox', this.props);
+        return <LabelOnly msg={this.props.msg} mols={this.props.mols}/>;
+    }
+});
+
+
+var RandomMessage = React.createClass({
+    getInitialState: function() {
+        return { message: 'Hello, Universe' , mols: moldata};
+    },
+    changeMessage: function(e) {
+        this.setState({ message: e.target.value , mols: moldata});
+    },
+    render: function() {
+        return (
+            <div>
+
+                <MessageBox msg={this.state.message} mols={this.state.mols} />
+                <p><input type="text" onChange={ this.changeMessage } /></p>
+            </div>
+        );
+    }
+});
+
+ReactDOM.render(<RandomMessage />, document.querySelector('#main'));
+</script>

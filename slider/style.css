@@ -1,0 +1,130 @@
+
+.scoring_parameters_wrapper {
+    width: 100%;
+    margin-top: 30px
+}
+
+.scoring_parameters_wrapper.disable-section {
+    pointer-events: none;
+    opacity: 0.5;
+    color: #ccc
+}
+
+.scoring_parameters_wrapper .scoring_parameters_title {
+    font-weight: bold
+}
+
+.scoring_parameters_wrapper .scoring_parameters_slider_sections {
+    clear: both
+}
+
+.scoring_parameters_wrapper .scoring_parameters_slider_section {
+    overflow: auto;
+    padding: 1em 1.7em;
+    width: 50%;
+    float: left
+}
+
+.scoring_parameters_wrapper .scoring_parameters_slider_section .scoring_parameters_slider_title {
+    font-weight: bold;
+    font-size: 0.82em;
+    display: list-item;
+    margin-bottom: .2em;
+    margin-left: -.5em
+}
+
+.scoring_parameters_wrapper .scoring_profile_item {
+    margin-bottom: 1.5em
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider {
+    border: 1px solid #dddddd;
+    height: .18em;
+    position: relative
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .slider_progress {
+    position: absolute;
+    z-index: 1;
+    background: #f90;
+    height: .08em;
+    width: 0%
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .slider_handle {
+    left: 0%;
+    top: -.5em;
+    margin-left: -.6em;
+    position: absolute;
+    z-index: 2;
+    width: 1.2em;
+    height: 1.2em;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #f90;
+    background: #FFFFFF
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .slider_markers {
+    width: 2em;
+    height: 1em;
+    line-height: 1em;
+    position: absolute;
+    font-size: 0.8em;
+    text-align: center;
+    top: 12px;
+    left: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .slider_pointer {
+    width: .6em;
+    height: .6em;
+    position: absolute;
+    left: 0%;
+    line-height: 1em;
+    font-size: 0.8em;
+    text-align: center;
+    margin-left: -.1em;
+    background-image: url("../resources/dot.png");
+    background-repeat: no-repeat
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .slider_label {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -2em;
+    margin-top: 1em;
+    width: 2em;
+    line-height: 1em;
+    font-size: 0.8em;
+    text-align: center;
+    cursor: pointer
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .highlighted {
+    font-weight: bold;
+    color: #f90
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .exclude {
+    left: 0%
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .low {
+    left: 33.33%
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .medium {
+    left: 66.67%
+}
+
+.scoring_parameters_wrapper .scoring_profile_item .slider .high {
+    left: 100%
+}

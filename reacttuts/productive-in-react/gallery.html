@@ -1,0 +1,65 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='gallery' style='width: 200px;height: 200px;border: 1px solid #000;'></div>
+<style type="text/css">
+
+	.normalstate{
+
+		background-color: green;
+	}
+	.box {
+		height: 100px;
+		width: 100px;
+		position: relative;
+	}
+	.close{
+		position: absolute;
+		height: 10px;
+		width: 10px;
+		right: 0px;
+		bottom: 0px;
+		z-index: 3;
+		display: none;
+	}
+	.hoverstate .close{
+		display: block;
+	}
+</style>
+<script type="text/babel">
+
+	var LI = React.createClass({
+		getInitialState: function(){
+			return {
+				onmouseover: false
+			};
+		},
+		handleMouseOver: function(){
+			this.setState({onmouseover:true});
+		},
+		handleMouseOut: function(){
+			this.setState({onmouseover:false});
+		},
+		render: function(){
+			return (
+				<div onMouseOver={this.handleMouseOver}
+					onMouseOut={this.handleMouseOut}
+					className={'box '+ (this.state.onmouseover ? 'hoverstate' : 'normalstate') }>
+					{this.props.language}
+					<div className='close'>X</div>
+				</div>
+			);
+		}
+	});
+	var UL = () => {
+		var listOfLanguages = ["Java","PHP","Dot net"].map(function(lang,i){
+			return <LI language={lang} key={i}/>
+		});
+		return <div>{listOfLanguages}</div>
+	}
+
+	ReactDOM.render(<UL /> ,   document.querySelector('#gallery'));
+
+</script>
+
+

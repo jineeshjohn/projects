@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+#hideMe {
+    -moz-animation: saved 0s ease-in 5s forwards;
+    -webkit-animation: saved 0s ease-in 5s forwards;
+    -o-animation: saved 0s ease-in 5s forwards;
+    animation: saved 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes saved {
+    to {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes saved {
+    to {
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div id="hideMe"> Customized parameters saved! </div>
+</body>
+</html>
+

@@ -3,6 +3,7 @@ define(function(require){
 	var React =  require('react');
 	var UserList =  require('es6!../containers/user-list');
 	var UserDetails = require('es6!../containers/user-detail');
+	var newStore = require('../store');
 
 	const App = () => (
 	    <div>

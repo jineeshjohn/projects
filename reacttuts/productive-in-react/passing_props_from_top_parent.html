@@ -1,0 +1,43 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='main'></div>
+
+<script type="text/babel">
+var LabelOnly = React.createClass({
+    render: function(){
+        console.log('in label only', this.props);
+        return (
+            <div>{this.props.msg}</div>
+        );
+    }
+});
+
+var MessageBox = React.createClass({
+    render: function(){
+        console.log('in messagebox', this.props);
+        return <LabelOnly msg={this.props.msg}/>;
+    }
+});
+
+
+var RandomMessage = React.createClass({
+    getInitialState: function() {
+        return { message: 'Hello, Universe' };
+    },
+    changeMessage: function(e) {
+        this.setState({ message: e.target.value });
+    },
+    render: function() {
+        return (
+            <div>
+
+                <MessageBox msg={this.state.message} />
+                <p><input type="text" onChange={ this.changeMessage } /></p>
+            </div>
+        );
+    }
+});
+
+ReactDOM.render(<RandomMessage />, document.querySelector('#main'));
+</script>

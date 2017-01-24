@@ -2,6 +2,7 @@ define(function(require){
 	'use strict';
 	var combineReducers = require('redux').combineReducers;
 	var UserReducer = require('./reducer-users');
+	var OrgReducer = require('./reducer-org');
 	var ActiveUserReducer = require('./reducer-active-user');
 
 	/*
@@ -11,7 +12,8 @@ define(function(require){
 
 	const allReducers = combineReducers({
 	    users: UserReducer,
-	    activeUser: ActiveUserReducer
+	    activeUser: ActiveUserReducer,
+	    orgUser: OrgReducer
 	});
 
 	return allReducers;

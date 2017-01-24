@@ -1,0 +1,36 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+<div id='main'></div>
+
+<script type="text/javascript">
+var mydata = {
+    msg:'Welcome to react..'
+};
+</script>
+
+<script type="text/babel">
+
+var Message = function(props){
+    return(
+        <div> {props.msg} </div>
+    );
+}
+
+var MessageContainer = React.createClass({
+
+    render: function() {
+        return (
+            <Message msg={this.props.msg} />
+        );
+    }
+});
+var el = React.createElement(Message, mydata);
+
+
+ReactDOM.render(el, document.querySelector('#main'));
+
+setTimeout(function(){
+    el.setState({msg:'hellow'});
+},4000);
+</script>

@@ -27,12 +27,12 @@ if (typeof window !== "undefined" && window.navigator && window.document) {
 
 define([
     //>>excludeStart('excludeBabel', pragmas.excludeBabel)
-    'babel',
+    'babeljs',
     //>>excludeEnd('excludeBabel')
     'module'
 ], function(
     //>>excludeStart('excludeBabel', pragmas.excludeBabel)
-    babel,
+    babeljs,
     //>>excludeEnd('excludeBabel')
     _module
     ) {
@@ -55,7 +55,7 @@ define([
             var url = req.toUrl(name + '.js');
 
             fetchText(url, function (text) {
-                var code = babel.transform(text, applyOptions(_module.config())).code;
+                var code = babeljs.transform(text, applyOptions(_module.config())).code;
 
                 if (config.isBuild) {
                     _buildMap[name] = code;

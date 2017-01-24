@@ -1,0 +1,31 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+
+<div id='main'></div>
+<script type="text/babel">
+
+var TextBox = function() {
+	return (
+		<input type='text'/>
+	)
+};
+var ContainerDiv = React.createClass({
+	render: function(){
+		return(
+			<div style={{border: '1px dotted #CCC'}}>
+				<TextBox />
+				<TextBox onc/>
+			</div>
+		);
+	}
+});
+
+ReactDOM.render(
+    <Button />,
+    document.getElementById('main')
+);
+
+
+</script>

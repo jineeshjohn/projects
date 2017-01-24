@@ -1,0 +1,1 @@
+ReactDOM.render(<div>jjjj{true}</div>, document.getElementById('container'));

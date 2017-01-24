@@ -1,0 +1,42 @@
+<script src='../lib/browser.js'></script>
+<script src='../lib/react.js'></script>
+<script src='../lib/react-dom.js'></script>
+
+
+<div id='main'></div>
+<script type="text/babel">
+
+var ImageWithStatusText  = React.createClass({
+
+  getInitialState: function(){
+  	return {
+  		imageStatus: 'initial state'
+  	}
+  },
+
+  handleImageLoaded: function() {
+    this.setState({ imageStatus: 'loaded' });
+  },
+
+  handleImageErrored: function() {
+    this.setState({ imageStatus: 'failed to load' });
+  },
+
+  render: function() {
+    return (
+      <div>
+        <img
+          src='https://app.int.chemplanner.com/RXNFinder/api/v1/reaction/RXCI01028242/png/750/250/-/image'
+          onLoad={this.handleImageLoaded.bind(this)}
+          onError={this.handleImageErrored.bind(this)}
+          />
+        {this.state.imageStatus}
+      </div>
+    );
+  }
+});
+
+ ReactDOM.render(<ImageWithStatusText/> , document.querySelector('#main'));
+
+
+</script>

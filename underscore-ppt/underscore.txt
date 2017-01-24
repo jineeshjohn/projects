@@ -1,0 +1,65 @@
+Why Underscore.js?
+	 let's see some of the common cases that we have done in JavaScript
+	 case 1 - apply function over each item in a collection
+	 case 2 - transform array
+	 case 3 - Filtering can be painful sometimes,
+	 case 4 - Group, sort, shuffle
+	 case 5 - What about performance .
+
+	Now our old friend the four loop, is reliable,
+	 	but he insists that you do a lot of repetitious work if you want to do similar actions over and over again.
+	but JavaScript doesn't have any utility methods to handle this which are supported in cross brower way.
+
+What does it do?
+	1. Underscore helps to manipulate and control JavaScript collections, arrays, objects and functions.
+	2. Underscore can significantly improve the performance of your code
+	3. Functional nature of the library can help make your code more expressive and easier to read.
+	4. fills the gap in the language
+	5. Reduce LOC and improve clarity of your application logic
+	6. Fallback to ecmascript if there is one
+
+General purpose use cases
+	client server  or database based web appliction or restful web service
+		1. Loop over n times
+		2. Loop through a collection and return a deeply-nested property from each item
+		3. Create an array of N size and populate them with unique values of the same prefix
+		4. Deep-cloning Javascript object
+		5. Get Random Number between a range
+		6. Extending object
+		7. Create a new hash filtering an existing hash
+
+Functions are categorized in to
+	Collections - The Collections functions  can be used to work with JavaScript objects or arrays
+	Arrays
+	Object
+	Utility
+	Chaining
+
+Collections - can be used to over on Array or Objects
+	map - return modified collection
+	each - iterate over loop
+	find - return first item
+	filter - loop and return an list of values
+	where - check each value and return a list of values
+	findWhere- return first value maching the where clause
+	reject - oposite of filter
+	every -truth test
+	some - any value passes the truth test in the list
+	contains - search for the value passed
+	pluck - extract a list of propery values
+	groupBy - countBy - length
+	size - useful to getrid of the index - tip
+
+
+ lodash and underscore
+ 	lodash is superset of underscore - which has a better support AMD , more actively managed, more new functions
+
+
+ Summary -
+ 	Underscore really shines in working with arrays and collections.
+ 	Helps to extract and give shape to your data.
+ 	Helps to improve performance
+ 	Helps to look the code better.
+
+
+
