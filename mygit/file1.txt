@@ -1,3 +1,0 @@
-my file1 content
-My File2 content
-My File3 content
