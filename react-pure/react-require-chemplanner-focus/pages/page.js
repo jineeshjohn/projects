@@ -24,7 +24,7 @@ define(function(require) {
         componentDidUpdate: function(prevProps) {
             // TODO prevProps.viewport
             if (!this.props.isPageInViewport && prevProps.viewport) {
-                this.updatePagePosition();
+               this.updatePagePosition();
             }
         },
         updatePagePosition: function() {
