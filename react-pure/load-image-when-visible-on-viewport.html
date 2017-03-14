@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+    const LISTEN_FLAG = 'data-lazyload-listened';
+    const listeners = [];
+    let pending = [];
+
+    const purgePending = function purgePending() {
+        pending.forEach(component => {
+            const index = listeners.indexOf(component);
+            if (index !== -1) {
+                listeners.splice(index, 1);
+            }
+        });
+
+        pending = [];
+    };
+
+
+    const lazyLoadHandler = () => {
+        for (let i = 0; i < listeners.length; ++i) {
+            const listener = listeners[i];
+            checkOverflowVisible(listener, document.body);
+        }
+
+        // Remove `once` component in listeners
+        purgePending();
+    };
+    const checkOverflowVisible = function checkOverflowVisible(component, parent) {
+        const node = ReactDOM.findDOMNode(component);
+
+        const { top: parentTop, height: parentHeight } = parent.getBoundingClientRect();
+        const windowInnerHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        // calculate top and height of the intersection of the element's scrollParent and viewport
+        const intersectionTop = Math.max(parentTop, 0); // intersection's top relative to viewport
+        const intersectionHeight = Math.min(windowInnerHeight, parentTop + parentHeight) - intersectionTop; // height
+
+        // check whether the element is visible in the intersection
+        const { top, height } = node.getBoundingClientRect();
+        const offsetTop = top - intersectionTop; // element's top relative to intersection
+
+        const offsets = Array.isArray(component.props.offset) ?
+                        component.props.offset :
+                        [component.props.offset, component.props.offset]; // Be compatible with previous API
+
+        return (offsetTop - offsets[0] <= intersectionHeight) &&
+                (offsetTop + height + offsets[1] >= 0);
+    };
+    var ImgComponent = React.createClass({
+        componentDidMount: function() {
+            var isVisible = checkOverflowVisible(this, document.body);
+            listeners.push(this);
+            console.log('isVisible', isVisible);
+            document.addEventListener('scroll', lazyLoadHandler);
+            if (isVisible) {
+                // Avoid extra render if previously is visible, yeah I mean `render` call,
+                // not actual DOM render
+                if (!this.visible) {
+                    this.visible = true;
+                    this.forceUpdate();
+                }
+            } else if (!(this.props.once && this.visible)) {
+                this.visible = false;
+                if (this.props.unmountIfInvisible) {
+                    this.forceUpdate();
+                }
+            }
+        },
+        render: function() {
+            var item = this.props.item;
+            return (
+                <div key={item.id}>
+                    <img src={item.img} />
+                </div>
+            );
+        }
+    });
+      var Gallary = function(){
+        var arr = [
+            {id:1, img: 'https://c1.staticflickr.com/6/5024/5625103494_2a16e466a4_n.jpg'},
+            {id:2, img: 'https://c1.staticflickr.com/4/3684/10311134805_311137674b_m.jpg'},
+            {id:3, img: 'https://c1.staticflickr.com/6/5024/22482191888_f0ecb55cdf_n.jpg'},
+            {id:4, img: 'https://c1.staticflickr.com/6/5024/8534394214_23d143d7b1_m.jpg'},
+            {id:5, img: 'https://c1.staticflickr.com/4/3538/3684068448_a00a3a2d2c.jpg'},
+            {id:6, img: 'https://c1.staticflickr.com/4/3542/3515611027_0d1c40bcee.jpg'},
+            {id:7, img: 'https://c1.staticflickr.com/6/5024/8165506503_31105e0ece_m.jpg'},
+            {id:8, img: 'https://c1.staticflickr.com/3/2437/3938987808_a26a283066_m.jpg'},
+            {id:9, img: 'https://c1.staticflickr.com/6/5024/8165506503_31105e0ece_m.jpg'},
+            {id:10, img: 'https://c1.staticflickr.com/3/2662/4206998521_28737df9ca_m.jpg'},
+            {id:11, img: 'https://c1.staticflickr.com/4/3684/10311134805_311137674b_m.jpg'},
+        ];
+        var imgList = arr.map(function(item){
+            return <ImgComponent key={item.id} item={item} />
+        });
+        return (
+            <div>
+                <h3>Gallary</h3>
+                {imgList}
+            </div>
+
+        );
+      };
+      ReactDOM.render(
+        <Gallary />,
+        document.querySelector('#example')
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>reveal.js - Barebones</title>
+    <link rel="stylesheet" href="reveal.min.css">
+    <link rel="stylesheet" href="black.min.css">
+    <!-- <link rel="stylesheet" href="pdf.min.css"> -->
+    <style type="text/css">
+    li {
+        color: #0f7de0;
+    }
+    body, h1, h2, h3, h4, h5, h6, ul, li, div{
+        background: #FFF !important;
+        color:#1da1f2 !important;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Regex</h1>
+                <em>a pattern describing a set of strings</em>
+            </section>
+            <section>
+                <h2>Arbitrarily complex</h2>
+                <img src='./complex.jpg' />
+            </section>
+            <section>
+                <h3>Tools</h3>
+                <img src='./tools.jpg' />
+                <pre>
+                    ├── https://www.regex101.com/ <a href="https://www.regex101.com/"> 👉 </a>
+                    ├── https://www.regexr.com/ <a href="https://www.regexr.com/"> 👉 </a>
+                    └── https://www.debuggex.com/ <a href="https://www.debuggex.com/"> 👉 </a>
+                </pre>
+            </section>
+            <section>
+                <h4>values are picked up from ASCII table</h4>
+                <img src="./ascii_table.jpg" />
+                <a href="https://regex101.com/r/V0De4p/1">eg 👉 </a>
+            </section>
+            <section>
+                <h4>Groups - () </h4>
+                <pre>
+                        1. Capturing group <a href="http://regexr.com/3fgd0"> 👉 </a>
+                            eg: //(\))(\d{1,})|([a-zA-Z])(\d{1,})
+                        2. Non capturing group ( ?: )
+                        3. more capturing (<a href="https://regex101.com/r/JzlMB2/1">👉</a>)
+                </pre>
+            </section>
+            <section>
+                <h4>metacharacters</h4>
+                <pre>
+                    ├── .   # means everything execpt new line (\n) <a href='https://regex101.com/r/rmRw90/2'>👉</a>
+                    ├── []  # character class
+                    ├── ()  # groups
+                    ├── ^   # Negation (or) beginning of string
+                    ├── $   # end of string
+                    ├── *   # 0 or more
+                    ├── +   # 1 or more
+                    ├── ?   # 0 or 1
+                    ├── {}  # range calculator
+                    └── |   # alternation
+                </pre>
+            </section>
+            <section>
+                <h4>quantifiers</h4>
+                <pre>
+                    ├── ? # 0 or 1
+                    ├── + # 1 or more
+                    └── * # 0 or more
+                </pre>
+            </section>
+            <section>
+                <h4>Common terms</h4>
+                <pre>
+                    ├── Greedy
+                    ├── Lazy
+                    ├── Capturing group non capturing group ( ?: )
+                    └── Lookahead ( positive and negative) eg: foo(?=bar) <a href='https://regex101.com/r/wLJQpj/1'>👉</a>
+                </pre>
+                 <pre>
+                    Greedy  - Means match longest possible string.
+                            - Greedy will consume as much as possible - <.+> will pick everything
+                            - abcdefghijklmc <a href='https://regex101.com/r/fkqofM/1'>👉</a>
+                            - use negated character classes instead of greedy methods
+                    Lazy    - Means match shortest possible string. -
+                            - <.+?> will give you the tags
+                            - abc <a href='https://regex101.com/r/BVqcnN/1'>👉</a>
+                </pre>
+            </section>
+            <section>
+                <h3>Shortcut for range</h3>
+                <img src="./shortcut_for_range.jpg" />
+            </section>
+            <section>
+                <h6 class="fragement">Questions</h6>
+            </section>
+            <section>
+                <em class="fragement"> Thank you! </em>
+            </section>
+        </div>
+    </div>
+    <script src="reveal.min.js"></script>
+    <script>
+    Reveal.initialize();
+    </script>
+</body>
+
+</html>

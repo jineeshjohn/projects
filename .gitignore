@@ -1,4 +1,5 @@
 .idea
+.exe
 .reviewboardrc
 .sass-cache
 *.log
