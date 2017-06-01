@@ -1,0 +1,117 @@
+img {
+  height: 200px;
+  width: 200px;
+}
+
+.alternativesPages_ribbon {
+    white-space: nowrap;
+
+    .alternativeDepictionMol {
+        margin: 6px;
+    }
+}
+
+.alternativesPages_grid {
+    .alternativeDepictionMol {
+        margin: .5%;
+    }
+}
+
+.alternativesPages {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.alternativesPages_navigation {
+    position: absolute;
+    bottom: 1px;
+    right: 10px;
+}
+
+.alternativesPages_navigation_back,
+.alternativesPages_navigation_forward {
+    background: #FFF;
+    padding: 5px;
+    border: 1px solid #CCC;
+    display: inline-block;
+    margin: 0 1px;
+    font-size: 18px;
+
+    &.alternativesPages_navigation_btnDisabled {
+        background: #DDD;
+        opacity: 0.5;
+    }
+}
+
+.alternativesPage {
+    display: inline;
+}
+
+
+.alternativeDepictionMol {
+    display: inline-block;
+    border: 1px solid #CCC;
+    background: #FFF;
+}
+.alternativeDepictionMol_colSix {
+    width: 15.6%;
+}
+
+.alternativeDepictionMol_colFive {
+    width: 19%;
+}
+
+.alternativeDepictionMol_colFour {
+    width: 24% ;
+}
+
+.alternativeDepictionMol_colThree {
+    width: 32.33% ;
+}
+
+.alternativeDepictionMol_section {
+    cursor: pointer;
+}
+.alternativeDepictionMolExact_selected {
+    border-color: #663399;
+}
+
+.alternativeDepictionMolPredicted_selected {
+    border-color: #ff9900;
+}
+
+.alternativeDepictionMol_exact:hover {
+    border-color: #663399;
+}
+.alternativeDepictionMol_predicted:hover {
+    border-color: #ff9900;
+}
+.alternativeDepictionMol_img {
+    width: 100%;
+    padding-bottom: 50% ; /* % of width, defines aspect ratio*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+.alternativeDepictionMol_index {
+    font-weight: bold;
+    padding-left: 10px;
+}
+.alternativeDepictionMol_extraInfo {
+    overflow: hidden;
+    margin: 0px 10px;
+}
+.alternativeDepictionMol_contextMenuIcon {
+    float: left;
+    padding: 5px;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+}
+.alternativeDepictionMol_type {
+    padding-bottom: 5px;
+    color: #648FD8;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}

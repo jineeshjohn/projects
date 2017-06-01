@@ -14,5 +14,6 @@ define(function(require){
     var React = require('react');
 	var ReactDOM = require("react-dom");
     var App = require('es6!./app');
-    ReactDOM.render(React.createElement(App,{}), document.querySelector('#main'));
+    var reactElmentNode = React.createElement(App, {});
+    ReactDOM.render(reactElmentNode, document.querySelector('#main'));
 });

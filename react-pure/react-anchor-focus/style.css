@@ -1,0 +1,10 @@
+img {
+  height: 200px;
+  width: 200px;
+}
+div.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #CCC;
+  margin: 10px;
+}
